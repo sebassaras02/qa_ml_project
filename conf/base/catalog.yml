@@ -1,0 +1,11 @@
+train: 
+  type: pandas.CSVDataset
+  filepath: data/01_raw/train.csv
+
+X_tfidf_titles:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/X_tfidf_titles.parquet
+
+X_tfidf_abstracts:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/X_tfidf_abstracts.parquet

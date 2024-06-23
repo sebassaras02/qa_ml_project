@@ -1,0 +1,1 @@
+{"train": {"rows": 20972, "columns": 9, "file_size": 23151008}, "cleaned_data_abstracts": {"rows": 20972, "columns": 9}, "cleaned_data_titles": {"rows": 20972, "columns": 9}, "X_tfidf_abstracts": {"rows": 20972, "columns": 2240, "file_size": 16559048}, "X_tfidf_titles": {"rows": 20972, "columns": 238, "file_size": 1368895}}
