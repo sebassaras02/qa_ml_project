@@ -1,2 +1,6 @@
 col_titles: "TITLE"
 col_abstracts: "ABSTRACT"
+n_titles: 3
+n_abstracts: 4
+type_titles: "titles"
+type_abstracts: "abstracts"

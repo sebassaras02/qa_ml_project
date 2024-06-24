@@ -9,3 +9,19 @@ X_tfidf_titles:
 X_tfidf_abstracts:
   type: pandas.ParquetDataset
   filepath: data/04_feature/X_tfidf_abstracts.parquet
+
+vectorizer_titles:
+  type: pickle.PickleDataset
+  filepath: data/06_models/vectorizer_titles.pkl
+
+vectorizer_abstract:
+  type: pickle.PickleDataset
+  filepath: data/06_models/vectorizer_abstracts.pkl
+
+results_titles:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/results_titles.csv
+
+results_abstracts:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/results_abstracts.csv

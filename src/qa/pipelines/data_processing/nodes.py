@@ -71,7 +71,7 @@ def calculate_tf_idf_matrix(df: pd.DataFrame, col_target: str):
     return X, vectorizer
 
 
-def nmf_decomposition(X, n_components, vectorizer):
+def nmf_decomposition(X: pd.DataFrame, n_components, vectorizer, type: str):
     """
     This function receives a matrix X and returns the decomposition based on NMF.
 
@@ -85,9 +85,33 @@ def nmf_decomposition(X, n_components, vectorizer):
         pd.DataFrame: the samples matrix
     """
     nmf = NMF(n_components=n_components)
-    W = nmf.fit_transform(X)
+    W = nmf.fit_transform(X.to_numpy())
     df_elements = pd.DataFrame(
         nmf.components_, columns=vectorizer.get_feature_names_out()
     )
-    df_samples = pd.DataFrame(W)
+    if type == "titles":
+        df_samples = pd.DataFrame(W, columns=["deep learning", "math", "reinforcement learning"])
+    else:
+        df_samples = pd.DataFrame(W, columns=["data", "physics", "math", "machine learning"])
     return df_elements, df_samples
+
+def get_label(row):
+    """
+    This function receives a row and returns the label of the cluster.
+    """
+    return row.idxmax()
+
+
+def assing_clusters(df: pd.DataFrame):
+    """
+    This function receives a DataFrame and the type of clustering and returns the DataFrame with the cluster assigned.
+
+    Args:
+        df (pd.DataFrame): a DataFrame to be transformed
+        type (str): the type of the cluster
+
+    Returns:
+        pd.DataFrame: the DataFrame with the cluster assigned
+    """
+    df["class"]=df.apply(get_label, axis=1)
+    return df
